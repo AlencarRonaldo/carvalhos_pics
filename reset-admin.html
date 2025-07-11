@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reset Admin - Carvalho Sports</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #1a1a1a;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #2a2a2a;
+            padding: 2rem;
+            border-radius: 12px;
+        }
+        button {
+            background: #e63946;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin: 0.5rem;
+        }
+        button:hover {
+            background: #d62839;
+        }
+        .success {
+            background: #22c55e;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔧 Reset Admin - Carvalho Sports</h1>
+        <p>Use esta página para resetar os dados do painel administrativo e carregar as 9 fotos padrão.</p>
+        
+        <div class="success" id="successMsg">
+            ✅ Dados resetados com sucesso! Agora acesse o painel admin.
+        </div>
+        
+        <button onclick="resetAdminData()">🗑️ Limpar Dados Antigos</button>
+        <button onclick="loadDefaultPhotos()">📸 Carregar 9 Fotos Padrão</button>
+        <button onclick="openAdminPanel()">🚀 Abrir Painel Admin</button>
+        
+        <div style="margin-top: 2rem; padding: 1rem; background: #333; border-radius: 8px;">
+            <h3>Status:</h3>
+            <p id="status">Pronto para resetar</p>
+        </div>
+    </div>
+
+    <script>
+        function resetAdminData() {
+            // Limpar todos os dados do localStorage
+            localStorage.removeItem('adminPortfolioData');
+            localStorage.removeItem('adminSettings');
+            localStorage.removeItem('adminMessages');
+            localStorage.removeItem('adminSupporters');
+            
+            document.getElementById('status').textContent = '✅ Dados antigos removidos';
+            document.getElementById('successMsg').style.display = 'block';
+        }
+
+        function loadDefaultPhotos() {
+            // Carregar as 9 fotos padrão
+            const defaultPhotos = [
+                {
+                    id: 1,
+                    title: "Final do Campeonato",
+                    category: "futebol",
+                    description: "Momento decisivo da final",
+                    image: "https://picsum.photos/400/300?random=1",
+                    dateAdded: "2024-01-15"
+                },
+                {
+                    id: 2,
+                    title: "Enterrada Espetacular",
+                    category: "basquete",
+                    description: "Lance épico no NBB",
+                    image: "https://picsum.photos/400/300?random=2",
+                    dateAdded: "2024-01-14"
+                },
+                {
+                    id: 3,
+                    title: "Ataque Potente",
+                    category: "volei",
+                    description: "Cortada devastadora",
+                    image: "https://picsum.photos/400/300?random=3",
+                    dateAdded: "2024-01-13"
+                },
+                {
+                    id: 4,
+                    title: "Gol Decisivo",
+                    category: "futebol",
+                    description: "Gol que definiu o jogo",
+                    image: "https://picsum.photos/400/300?random=4",
+                    dateAdded: "2024-01-12"
+                },
+                {
+                    id: 5,
+                    title: "Lance Livre Perfeito",
+                    category: "basquete",
+                    description: "Arremesso certeiro",
+                    image: "https://picsum.photos/400/300?random=5",
+                    dateAdded: "2024-01-11"
+                },
+                {
+                    id: 6,
+                    title: "Defesa Impossível",
+                    category: "volei",
+                    description: "Salvamento incrível",
+                    image: "https://picsum.photos/400/300?random=6",
+                    dateAdded: "2024-01-10"
+                },
+                {
+                    id: 7,
+                    title: "Chegada Épica",
+                    category: "natacao",
+                    description: "Disputa nos 100m livre",
+                    image: "https://picsum.photos/400/300?random=7",
+                    dateAdded: "2024-01-09"
+                },
+                {
+                    id: 8,
+                    title: "Saque Perfeito",
+                    category: "tenis",
+                    description: "Ace definitivo",
+                    image: "https://picsum.photos/400/300?random=8",
+                    dateAdded: "2024-01-08"
+                },
+                {
+                    id: 9,
+                    title: "Borboleta Técnica",
+                    category: "natacao",
+                    description: "Nado borboleta impecável",
+                    image: "https://picsum.photos/400/300?random=9",
+                    dateAdded: "2024-01-07"
+                }
+            ];
+            
+            // Salvar no localStorage
+            localStorage.setItem('adminPortfolioData', JSON.stringify(defaultPhotos));
+            
+            document.getElementById('status').textContent = `✅ ${defaultPhotos.length} fotos carregadas com sucesso!`;
+            document.getElementById('successMsg').style.display = 'block';
+        }
+
+        function openAdminPanel() {
+            window.open('admin/index.html', '_blank');
+        }
+    </script>
+</body>
+</html>

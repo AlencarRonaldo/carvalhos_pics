@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste Galeria - Carvalho Sports</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body { background: #000; color: white; padding: 2rem; }
+        .test-info { 
+            position: fixed; 
+            top: 10px; 
+            right: 10px; 
+            background: #e63946; 
+            color: white; 
+            padding: 10px; 
+            border-radius: 5px; 
+            z-index: 9999; 
+        }
+        .main-gallery { padding: 2rem 0; }
+        .main-gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        .main-gallery-item {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: #2a2a2a;
+            aspect-ratio: 4/3;
+        }
+        .main-gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+        .main-gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+            padding: 1rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .main-gallery-item:hover .overlay {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-info">
+        ✅ TESTE GALERIA SIMPLES<br>
+        Status: <span id="status">Carregando...</span>
+    </div>
+
+    <h1>🎯 TESTE GALERIA - 9 FOTOS</h1>
+    
+    <section class="main-gallery">
+        <div class="main-gallery-grid" id="mainGalleryGrid">
+            <!-- Fotos serão carregadas aqui -->
+        </div>
+    </section>
+
+    <script>
+        document.getElementById('status').textContent = 'Iniciando...';
+        
+        const testPhotos = [
+            {
+                id: 1,
+                title: "Final do Campeonato",
+                category: "futebol",
+                description: "Momento decisivo da final",
+                image: "https://picsum.photos/400/300?random=1"
+            },
+            {
+                id: 2,
+                title: "Enterrada Espetacular",
+                category: "basquete", 
+                description: "Lance épico no NBB",
+                image: "https://picsum.photos/400/300?random=2"
+            },
+            {
+                id: 3,
+                title: "Ataque Potente",
+                category: "volei",
+                description: "Cortada devastadora",
+                image: "https://picsum.photos/400/300?random=3"
+            },
+            {
+                id: 4,
+                title: "Gol Decisivo",
+                category: "futebol",
+                description: "Gol que definiu o jogo",
+                image: "https://picsum.photos/400/300?random=4"
+            },
+            {
+                id: 5,
+                title: "Lance Livre Perfeito",
+                category: "basquete",
+                description: "Arremesso certeiro",
+                image: "https://picsum.photos/400/300?random=5"
+            },
+            {
+                id: 6,
+                title: "Defesa Impossível",
+                category: "volei",
+                description: "Salvamento incrível",
+                image: "https://picsum.photos/400/300?random=6"
+            },
+            {
+                id: 7,
+                title: "Chegada Épica",
+                category: "natacao",
+                description: "Disputa nos 100m livre",
+                image: "https://picsum.photos/400/300?random=7"
+            },
+            {
+                id: 8,
+                title: "Saque Perfeito",
+                category: "tenis",
+                description: "Ace definitivo",
+                image: "https://picsum.photos/400/300?random=8"
+            },
+            {
+                id: 9,
+                title: "Borboleta Técnica",
+                category: "natacao",
+                description: "Nado borboleta impecável",
+                image: "https://picsum.photos/400/300?random=9"
+            }
+        ];
+
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('status').textContent = 'DOM Carregado';
+            
+            const galleryGrid = document.getElementById('mainGalleryGrid');
+            
+            if (galleryGrid) {
+                document.getElementById('status').textContent = 'Grid Encontrado';
+                
+                testPhotos.forEach(photo => {
+                    const photoElement = document.createElement('div');
+                    photoElement.className = 'main-gallery-item';
+                    photoElement.innerHTML = `
+                        <img src="${photo.image}" alt="${photo.title}" loading="lazy">
+                        <div class="overlay">
+                            <h3 style="margin: 0 0 0.5rem 0; font-size: 1rem;">${photo.title}</h3>
+                            <p style="margin: 0; font-size: 0.9rem; opacity: 0.9;">${photo.description}</p>
+                        </div>
+                    `;
+                    
+                    galleryGrid.appendChild(photoElement);
+                });
+                
+                document.getElementById('status').textContent = `✅ ${testPhotos.length} fotos carregadas`;
+                
+            } else {
+                document.getElementById('status').textContent = '❌ Grid não encontrado';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carvalho Sports Photography - Fotógrafo Esportivo Profissional</title>
+    <meta name="description" content="Carvalho Sports Photography - Especialista em fotografia esportiva profissional. Capturando momentos épicos em futebol, basquete, vôlei e mais.">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="keywords" content="fotografia esportiva, fotógrafo esportivo, futebol, basquete, vôlei, natação, atletismo, eventos esportivos, São Paulo">
+    <meta name="author" content="Carvalho Sports Photography">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Carvalho Sports Photography - Fotógrafo Esportivo Profissional">
+    <meta property="og:description" content="Especialista em fotografia esportiva profissional. Capturando momentos épicos em diversas modalidades esportivas.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://carvalhosports.com">
+    <meta property="og:image" content="https://carvalhosports.com/images/og-image.jpg">
+    
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Carvalho Sports Photography">
+    <meta name="twitter:description" content="Fotógrafo esportivo profissional - Capturando momentos épicos no esporte">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://carvalhosports.com">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID');
+        
+        // Custom events for tracking
+        function trackEvent(action, category, label) {
+            gtag('event', action, {
+                event_category: category,
+                event_label: label
+            });
+        }
+        
+        // Track portfolio views
+        function trackPortfolioView(photoTitle) {
+            trackEvent('view_portfolio_item', 'Portfolio', photoTitle);
+        }
+        
+        // Track purchase button clicks
+        function trackPurchaseClick() {
+            trackEvent('click_purchase', 'Sales', 'Purchase Button');
+        }
+        
+        // Track form submissions
+        function trackFormSubmission(formType) {
+            trackEvent('form_submit', 'Contact', formType);
+        }
+    </script>
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="logo">
+                    <a href="#home" class="logo-link" style="display: flex; align-items: center; justify-content: center; text-decoration: none; color: inherit;">
+                        <img src="images/logo-carvalho.png" alt="Carvalho's Pics Logo" class="logo-image" style="height: 50px; margin-right: 15px;">
+                        <div class="logo-text" style="text-align: center;">
+                            <h1>CARVALHO'S <span class="accent">PICS</span></h1>
+                            <p class="logo-subtitle">PHOTOGRAPHY</p>
+                        </div>
+                    </a>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#home">Início</a></li>
+                    <li><a href="#portfolio">Galeria</a></li>
+                    <li><a href="#about">Sobre</a></li>
+                    <li><a href="#contact">Contato</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-background" style="background-image: url('images/hero-background.jpg');">
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    CAPTURANDO
+                    <span class="accent">MOMENTOS ÉPICOS</span>
+                    NO ESPORTE
+                </h1>
+                <p class="hero-subtitle">
+                    Fotógrafo especializado em esportes profissionais. 
+                    Transformo ação em arte, emoção em eternidade.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#portfolio" class="btn btn-primary">
+                        <i class="fas fa-camera"></i>
+                        Ver Portfolio
+                    </a>
+                    <a href="https://banlek.com/rones.carvalho" class="btn btn-secondary" target="_blank" onclick="trackPurchaseClick()">
+                        <i class="fas fa-shopping-cart"></i>
+                        Compre sua foto
+                    </a>
+                </div>
+            </div>
+            <div class="hero-stats" style="background: rgba(0,0,0,0.2); backdrop-filter: blur(5px); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+                <div class="stat">
+                    <span class="stat-number">500+</span>
+                    <span class="stat-label">Eventos Cobertos</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">50k+</span>
+                    <span class="stat-label">Fotos Capturadas</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">8</span>
+                    <span class="stat-label">Anos de Experiência</span>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Main Gallery -->
+    <section id="portfolio" class="main-gallery">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" id="galleryMainTitle">GALERIA PRINCIPAL</h2>
+                <p class="section-subtitle" id="galleryMainSubtitle">Explore nossa coleção completa de momentos únicos capturados no esporte</p>
+            </div>
+            
+            <!-- Gallery Filters -->
+            <div class="gallery-filters">
+                <button class="filter-btn" data-filter="futebol">
+                    <span class="filter-icon">⚽</span>
+                    <span class="filter-name">Futebol</span>
+                </button>
+                <button class="filter-btn" data-filter="basquete">
+                    <span class="filter-icon">🏀</span>
+                    <span class="filter-name">Basquete</span>
+                </button>
+                <button class="filter-btn" data-filter="volei">
+                    <span class="filter-icon">🏐</span>
+                    <span class="filter-name">Vôlei</span>
+                </button>
+                <button class="filter-btn" data-filter="natacao">
+                    <span class="filter-icon">🏊‍♂️</span>
+                    <span class="filter-name">Natação</span>
+                </button>
+                <button class="filter-btn" data-filter="tenis">
+                    <span class="filter-icon">🎾</span>
+                    <span class="filter-name">Tênis</span>
+                </button>
+                <button class="filter-btn" data-filter="corrida">
+                    <span class="filter-icon">🏃‍♂️</span>
+                    <span class="filter-name">Corrida</span>
+                </button>
+            </div>
+
+            <!-- Gallery Controls -->
+            <div class="gallery-controls">
+                <div class="purchase-button-container">
+                    <a href="https://banlek.com/rones.carvalho" class="btn btn-primary purchase-btn" target="_blank" onclick="trackPurchaseClick()">
+                        <i class="fas fa-shopping-cart"></i>
+                        Compre sua foto
+                    </a>
+                </div>
+            </div>
+
+            <!-- Main Gallery Grid -->
+            <div class="main-gallery-grid" id="mainGalleryGrid">
+                <!-- Photos will be loaded from admin panel data -->
+            </div>
+            
+            <!-- Load More -->
+            <div class="gallery-load-more" style="text-align: center; margin-top: 2rem;">
+                <button id="loadMoreMainGallery" class="btn btn-primary">
+                    <i class="fas fa-plus"></i>
+                    Carregar Mais Fotos
+                </button>
+                <p class="gallery-counter" style="margin-top: 1rem; color: var(--text-gray);">
+                    Mostrando <span id="showingMainCount">12</span> de <span id="totalMainCount">0</span> fotos
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 class="section-title">SOBRE CARVALHO</h2>
+                    <p class="lead">
+                        Especialista em fotografia esportiva com mais de 8 anos de experiência 
+                        documentando os momentos mais intensos do esporte brasileiro. Minha paixão 
+                        é capturar a emoção pura, a determinação e a beleza dos atletas em ação.
+                    </p>
+                    <p class="about-mission">
+                        "Cada clique é uma história, cada frame uma emoção eternizada. 
+                        Através da minha lente, transformo segundos em memórias que duram para sempre."
+                    </p>
+                    <div class="about-details">
+                        <div class="detail-item">
+                            <i class="fas fa-camera-retro"></i>
+                            <div>
+                                <h4>Equipamentos Profissionais</h4>
+                                <p>Canon R5, Sony A7R IV, lentes 70-200mm f/2.8, 400mm f/2.8</p>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h4>Entrega Expressa</h4>
+                                <p>Fotos editadas em até 24-48h | Disponibilidade 24/7</p>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-certificate"></i>
+                            <div>
+                                <h4>Credenciado</h4>
+                                <p>FIFA, CBF, Federações Estaduais | Acesso VIP aos estádios</p>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-users"></i>
+                            <div>
+                                <h4>Clientes</h4>
+                                <p>Clubes profissionais, atletas olímpicos, mídia esportiva</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="photographer-card">
+                        <div class="photographer-photo" style="display: flex; align-items: center; justify-content: center; background-color: #e63946;">
+                            <img src="images/logo-carvalho.png" alt="Logo Carvalho's Pics" style="max-width: 75%; height: auto;">
+                        </div>
+                        <div class="photographer-info">
+                            <h3>CARVALHO'S <span class="accent">PICS</span></h3>
+                            <p>Fotógrafo Esportivo</p>
+                            <div class="social-links">
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                                <a href="#"><i class="fab fa-facebook"></i></a>
+                                <a href="#"><i class="fab fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Apoiadores Section -->
+    <section id="apoiadores" class="supporters">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">APOIADORES</h2>
+                <p class="section-subtitle">Parceiros que confiam no nosso trabalho</p>
+            </div>
+            
+            <div class="supporters-grid" id="supportersGrid">
+                <div class="supporter-item" id="supporter-1">
+                    <div class="supporter-logo">
+                        <i class="fas fa-camera"></i>
+                        <span>EQUIPAMENTOS PRO</span>
+                    </div>
+                </div>
+                <div class="supporter-item" id="supporter-2">
+                    <div class="supporter-logo">
+                        <i class="fas fa-trophy"></i>
+                        <span>LIGA ESPORTIVA</span>
+                    </div>
+                </div>
+                <div class="supporter-item" id="supporter-3">
+                    <div class="supporter-logo">
+                        <i class="fas fa-building"></i>
+                        <span>ARENA SPORTS</span>
+                    </div>
+                </div>
+                <div class="supporter-item" id="supporter-4" style="display: none;">
+                    <div class="supporter-logo">
+                        <i class="fas fa-handshake"></i>
+                        <span>APOIADOR 4</span>
+                    </div>
+                </div>
+                <div class="supporter-item" id="supporter-5" style="display: none;">
+                    <div class="supporter-logo">
+                        <i class="fas fa-star"></i>
+                        <span>APOIADOR 5</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h2 class="section-title">VAMOS TRABALHAR JUNTOS?</h2>
+                    <p class="contact-description">
+                        Pronto para capturar os momentos mais importantes do seu evento esportivo? 
+                        Entre em contato e vamos criar algo extraordinário.
+                    </p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h4>Telefone</h4>
+                                <p>(11) 99999-9999</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <p>contato@carvalhosports.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>Localização</h4>
+                                <p>São Paulo, SP - Atendo todo Brasil</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="nome">Nome Completo</label>
+                            <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="seu@email.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="telefone">Telefone (opcional)</label>
+                            <input type="tel" id="telefone" name="telefone" placeholder="(11) 99999-9999">
+                        </div>
+                        <div class="form-group">
+                            <label for="tipo-projeto">Tipo de Projeto</label>
+                            <select id="tipo-projeto" name="tipo-projeto" required>
+                                <option value="">Selecione o tipo de projeto</option>
+                                <option value="evento-esportivo">Evento Esportivo</option>
+                                <option value="sessao-atleta">Sessão com Atleta</option>
+                                <option value="campeonato">Campeonato/Torneio</option>
+                                <option value="empresa">Projeto Empresarial</option>
+                                <option value="outro">Outro</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="data-evento">Data do Evento (opcional)</label>
+                            <input type="date" id="data-evento" name="data-evento">
+                        </div>
+                        <div class="form-group">
+                            <label for="mensagem">Detalhes do Projeto</label>
+                            <textarea id="mensagem" name="mensagem" placeholder="Conte-me mais sobre seu projeto: local, duração, número de pessoas, etc..." rows="5" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="newsletter" name="newsletter">
+                                <span class="checkmark"></span>
+                                Quero receber novidades e portfolios por email
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                            Enviar Solicitação
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>CARVALHO SPORTS</h3>
+                    <p>Capturando a essência do esporte</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#home">Início</a>
+                    <a href="#portfolio">Galeria</a>
+                    <a href="#about">Sobre</a>
+                    <a href="#contact">Contato</a>
+                </div>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Carvalho Sports Photography. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+        <div class="lightbox-content">
+            <span class="lightbox-close">&times;</span>
+            <img id="lightbox-image" src="" alt="">
+            <div class="lightbox-info">
+                <h3 id="lightbox-title"></h3>
+                <p id="lightbox-description"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- EmailJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function(){
+            emailjs.init("YOUR_PUBLIC_KEY"); // Substituir pela sua chave pública do EmailJS
+        })();
+    </script>
+    
+    <script src="config.js"></script>
+    <script src="portfolio-data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Administrativo - Carvalho Sports</title>
+    <link rel="stylesheet" href="admin-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Login Screen -->
+    <div id="loginScreen" class="login-screen">
+        <div class="login-container">
+            <div class="login-header">
+                <h1>Carvalho Sports</h1>
+                <p>Painel Administrativo</p>
+            </div>
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <label for="username">Usuário</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Senha</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit" class="btn-login">
+                    <i class="fas fa-sign-in-alt"></i>
+                    Entrar
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <div id="adminDashboard" class="admin-dashboard" style="display: none;">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h2>Carvalho Sports</h2>
+                <p>Admin Panel</p>
+            </div>
+            <ul class="sidebar-menu">
+                <li class="menu-item active" data-section="dashboard">
+                    <i class="fas fa-chart-pie"></i>
+                    Dashboard
+                </li>
+                <li class="menu-item" data-section="portfolio">
+                    <i class="fas fa-images"></i>
+                    Portfolio
+                </li>
+                <li class="menu-item" data-section="messages">
+                    <i class="fas fa-envelope"></i>
+                    Mensagens
+                    <span class="badge">3</span>
+                </li>
+                <li class="menu-item" data-section="supporters">
+                    <i class="fas fa-handshake"></i>
+                    Apoiadores
+                </li>
+                <li class="menu-item" data-section="analytics">
+                    <i class="fas fa-chart-line"></i>
+                    Analytics
+                </li>
+                <li class="menu-item" data-section="settings">
+                    <i class="fas fa-cog"></i>
+                    Configurações
+                </li>
+            </ul>
+            <div class="sidebar-footer">
+                <button id="logoutBtn" class="btn-logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Sair
+                </button>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="content-header">
+                <h1 id="pageTitle">Dashboard</h1>
+                <div class="header-actions">
+                    <span class="user-info">Bem-vindo, Carvalho</span>
+                </div>
+            </header>
+
+            <!-- Dashboard Section -->
+            <section id="dashboard-section" class="content-section active">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-images"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Portfolio</h3>
+                            <p class="stat-number">11</p>
+                            <p class="stat-label">Fotos publicadas</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Mensagens</h3>
+                            <p class="stat-number">23</p>
+                            <p class="stat-label">Este mês</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Visualizações</h3>
+                            <p class="stat-number">1.2k</p>
+                            <p class="stat-label">Esta semana</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Vendas</h3>
+                            <p class="stat-number">45</p>
+                            <p class="stat-label">Este mês</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Informações das Funções -->
+                <div class="functions-info">
+                    <h2>Guia de Funções do Painel</h2>
+                    <div class="functions-grid">
+                        <div class="function-card">
+                            <div class="function-icon">
+                                <i class="fas fa-images"></i>
+                            </div>
+                            <h3>Portfolio</h3>
+                            <p>Gerencie suas fotos esportivas. Adicione, edite ou remova imagens do seu portfolio profissional.</p>
+                            <ul>
+                                <li>• Upload de imagens em alta qualidade</li>
+                                <li>• Categorização por modalidade esportiva</li>
+                                <li>• Edição de títulos e descrições</li>
+                            </ul>
+                        </div>
+                        <div class="function-card">
+                            <div class="function-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <h3>Mensagens</h3>
+                            <p>Visualize e gerencie mensagens de contato enviadas pelos clientes através do site.</p>
+                            <ul>
+                                <li>• Notificações de novas mensagens</li>
+                                <li>• Organização por data de recebimento</li>
+                                <li>• Detalhes completos dos contatos</li>
+                            </ul>
+                        </div>
+                        <div class="function-card">
+                            <div class="function-icon">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <h3>Apoiadores</h3>
+                            <p>Configure os logos e nomes dos seus patrocinadores e apoiadores no site.</p>
+                            <ul>
+                                <li>• Upload de logos personalizados</li>
+                                <li>• Até 5 apoiadores simultâneos</li>
+                                <li>• Links para sites dos apoiadores</li>
+                            </ul>
+                        </div>
+                        <div class="function-card">
+                            <div class="function-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h3>Analytics</h3>
+                            <p>Acompanhe as estatísticas de visitação e performance do seu site.</p>
+                            <ul>
+                                <li>• Visualizações de páginas</li>
+                                <li>• Fotos mais populares</li>
+                                <li>• Relatórios de conversão</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Especificações de Imagens -->
+                <div class="image-specs">
+                    <h2>Especificações Técnicas das Imagens</h2>
+                    <div class="specs-grid">
+                        <div class="spec-card">
+                            <h3>Fotos do Portfolio</h3>
+                            <div class="spec-details">
+                                <div class="spec-item">
+                                    <strong>Resolução Mínima:</strong> 1920x1080px (Full HD)
+                                </div>
+                                <div class="spec-item">
+                                    <strong>Resolução Ideal:</strong> 2560x1440px ou superior
+                                </div>
+                                <div class="spec-item">
+                                    <strong>Proporção:</strong> 16:9 ou 4:3 (recomendado)
+                                </div>
+                                <div class="spec-item">
+                                    <strong>Formato:</strong> JPG, PNG, WebP
+                                </div>
+                                <div class="spec-item">
+                                    <strong>Tamanho Máximo:</strong> 10MB por imagem
+                                </div>
+                                <div class="spec-item">
+                                    <strong>Qualidade:</strong> 85-95% (para JPG)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="spec-card">
+                            <h3>Logos dos Apoiadores</h3>
+                            <div class="spec-details">
+                                <div class="spec-item">
+                                    <strong>Resolução Ideal:</strong> 400x200px
+                                </div>
+                                <div class="spec-item">
+                                    <strong>Formato:</strong> PNG (com fundo transparente)
+                                </div>
+                                <div class="spec-item">
+                                    <strong>Tamanho Máximo:</strong> 2MB
+                                </div>
+                                <div class="spec-item">
+                                    <strong>Proporção:</strong> 2:1 (largura:altura)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="spec-card">
+                            <h3>Dicas Importantes</h3>
+                            <div class="spec-details">
+                                <div class="spec-item">
+                                    <strong>Compressão:</strong> Use ferramentas como TinyPNG para otimizar
+                                </div>
+                                <div class="spec-item">
+                                    <strong>Backup:</strong> Mantenha sempre cópias originais das imagens
+                                </div>
+                                <div class="spec-item">
+                                    <strong>Nomes:</strong> Use nomes descritivos (ex: futebol_final_2024.jpg)
+                                </div>
+                                <div class="spec-item">
+                                    <strong>Performance:</strong> Imagens otimizadas carregam mais rápido
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="recent-activity">
+                    <h2>Atividade Recente</h2>
+                    <div class="activity-list">
+                        <div class="activity-item">
+                            <i class="fas fa-upload"></i>
+                            <span>Nova foto adicionada: "Tênis Championship"</span>
+                            <time>2 horas atrás</time>
+                        </div>
+                        <div class="activity-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>Nova mensagem de contato recebida</span>
+                            <time>5 horas atrás</time>
+                        </div>
+                        <div class="activity-item">
+                            <i class="fas fa-heart"></i>
+                            <span>10 novas curtidas no portfolio</span>
+                            <time>1 dia atrás</time>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Portfolio Section -->
+            <section id="portfolio-section" class="content-section">
+                <div class="section-header">
+                    <h2>Gerenciar Portfolio</h2>
+                    <button class="btn-primary" id="addPhotoBtn">
+                        <i class="fas fa-plus"></i>
+                        Adicionar Foto
+                    </button>
+                </div>
+
+                <div class="portfolio-grid">
+                    <!-- Portfolio items will be loaded here -->
+                </div>
+
+                <!-- Add Photo Modal -->
+                <div id="addPhotoModal" class="modal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3>Adicionar Nova Foto</h3>
+                            <span class="modal-close">&times;</span>
+                        </div>
+                        <form id="addPhotoForm" class="modal-form">
+                            <div class="form-group">
+                                <label for="photoTitle">Título</label>
+                                <input type="text" id="photoTitle" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="photoCategory">Categoria</label>
+                                <select id="photoCategory" required>
+                                    <option value="">Selecione uma categoria</option>
+                                    <option value="futebol">Futebol</option>
+                                    <option value="basquete">Basquete</option>
+                                    <option value="volei">Vôlei</option>
+                                    <option value="natacao">Natação</option>
+                                    <option value="tenis">Tênis</option>
+                                    <option value="corrida">Corrida</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="photoDescription">Descrição</label>
+                                <textarea id="photoDescription" rows="3" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="addPhotoFile">Arquivo da Imagem</label>
+                                <input type="file" id="addPhotoFile" accept="image/*" required>
+                                <div class="file-preview" id="addFilePreview" style="margin-top: 1rem; text-align: center;"></div>
+                                <small style="color: #666; font-size: 0.85em; display: block; margin-top: 5px;">
+                                    <b>Importante:</b> A imagem é salva no navegador. Faça backup regularmente.
+                                </small>
+                            </div>
+                            <div class="modal-actions">
+                                <button type="button" class="btn-secondary" id="cancelAdd">Cancelar</button>
+                                <button type="submit" class="btn-primary">Adicionar Foto</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Edit Photo Modal -->
+                <div id="editPhotoModal" class="modal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3>Editar Foto</h3>
+                            <span class="modal-close">&times;</span>
+                        </div>
+                        <form id="editPhotoForm" class="modal-form">
+                            <div class="form-group">
+                                <label for="editPhotoTitle">Título</label>
+                                <input type="text" id="editPhotoTitle" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="editPhotoCategory">Categoria</label>
+                                <select id="editPhotoCategory" required>
+                                    <option value="">Selecione uma categoria</option>
+                                    <option value="futebol">Futebol</option>
+                                    <option value="basquete">Basquete</option>
+                                    <option value="volei">Vôlei</option>
+                                    <option value="natacao">Natação</option>
+                                    <option value="tenis">Tênis</option>
+                                    <option value="corrida">Corrida</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="editPhotoDescription">Descrição</label>
+                                <textarea id="editPhotoDescription" rows="3" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="editPhotoFile">Trocar Imagem (Opcional)</label>
+                                <input type="file" id="editPhotoFile" accept="image/*">
+                                <small style="color: #666; font-size: 0.85em; display: block; margin-top: 5px;">
+                                    Selecione um novo arquivo para substituir a imagem atual.
+                                </small>
+                            </div>
+                            <div class="form-group">
+                                <label for="editPhotoUrl">URL da Imagem (Atual)</label>
+                                <input type="text" id="editPhotoUrl" readonly style="background: #f1f5f9; cursor: not-allowed;">
+                                <small style="color: #666; font-size: 0.85em;">A URL é gerada automaticamente no upload.</small>
+                            </div>
+                            <div class="form-group">
+                                <label>Prévia da Imagem Atual</label>
+                                <div id="editPhotoPreview" style="margin-top: 0.5rem;">
+                                    <img id="editCurrentImage" src="" alt="Imagem atual" style="max-width: 200px; max-height: 150px; border-radius: 8px; object-fit: cover;" onerror="this.onerror=null;this.src='https://via.placeholder.com/200x150.png?text=URL+Inválida';">
+                                </div>
+                            </div>
+                            <div class="modal-actions">
+                                <button type="button" class="btn-secondary" id="cancelEdit">Cancelar</button>
+                                <button type="submit" class="btn-primary">Salvar Alterações</button>
+                            </div>
+                            <input type="hidden" id="editPhotoId">
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Messages Section -->
+            <section id="messages-section" class="content-section">
+                <h2>Mensagens de Contato</h2>
+                <div class="messages-list">
+                    <!-- Messages will be loaded here -->
+                </div>
+            </section>
+
+            <!-- Supporters Section -->
+            <section id="supporters-section" class="content-section">
+                <div class="section-header">
+                    <h2>Gerenciar Apoiadores</h2>
+                    <button class="btn-primary" id="addSupporterBtn">
+                        <i class="fas fa-plus"></i>
+                        Adicionar Apoiador
+                    </button>
+                </div>
+
+                <div class="supporters-grid">
+                    <!-- Supporters will be loaded here -->
+                </div>
+
+                <!-- Add Supporter Modal -->
+                <div id="addSupporterModal" class="modal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3>Adicionar Novo Apoiador</h3>
+                            <span class="modal-close">&times;</span>
+                        </div>
+                        <form id="addSupporterForm" class="modal-form">
+                            <div class="form-group">
+                                <label for="supporterName">Nome do Apoiador</label>
+                                <input type="text" id="supporterName" placeholder="Ex: Equipamentos Pro" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="supporterUrl">Site do Apoiador (Opcional)</label>
+                                <input type="url" id="supporterUrl" placeholder="https://www.exemplo.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="supporterLogo">Logo do Apoiador</label>
+                                <input type="file" id="supporterLogo" accept="image/*" required>
+                                <div class="file-preview" id="supporterLogoPreview" style="margin-top: 1rem; text-align: center;"></div>
+                                <small style="color: #666; font-size: 0.85em; display: block; margin-top: 5px;">
+                                    <b>Tamanho ideal:</b> 400x200px (PNG com fundo transparente)<br>
+                                    <b>Máximo:</b> 5 apoiadores podem ser cadastrados
+                                </small>
+                            </div>
+                            <div class="modal-actions">
+                                <button type="button" class="btn-secondary" id="cancelAddSupporter">Cancelar</button>
+                                <button type="submit" class="btn-primary">Adicionar Apoiador</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Edit Supporter Modal -->
+                <div id="editSupporterModal" class="modal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3>Editar Apoiador</h3>
+                            <span class="modal-close">&times;</span>
+                        </div>
+                        <form id="editSupporterForm" class="modal-form">
+                            <div class="form-group">
+                                <label for="editSupporterName">Nome do Apoiador</label>
+                                <input type="text" id="editSupporterName" placeholder="Ex: Equipamentos Pro" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="editSupporterUrl">Site do Apoiador (Opcional)</label>
+                                <input type="url" id="editSupporterUrl" placeholder="https://www.exemplo.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="editSupporterLogo">Trocar Logo (Opcional)</label>
+                                <input type="file" id="editSupporterLogo" accept="image/*">
+                                <small style="color: #666; font-size: 0.85em; display: block; margin-top: 5px;">
+                                    Selecione um novo arquivo para substituir o logo atual.
+                                </small>
+                            </div>
+                            <div class="form-group">
+                                <label>Logo Atual</label>
+                                <div id="editSupporterLogoPreview" style="margin-top: 0.5rem; text-align: center;">
+                                    <img id="editCurrentSupporterLogo" src="" alt="Logo atual" style="max-width: 200px; max-height: 100px; border-radius: 8px; object-fit: contain; border: 1px solid #e2e8f0;" onerror="this.onerror=null;this.src='https://via.placeholder.com/200x100.png?text=Logo+Inválido';">
+                                </div>
+                            </div>
+                            <div class="modal-actions">
+                                <button type="button" class="btn-secondary" id="cancelEditSupporter">Cancelar</button>
+                                <button type="submit" class="btn-primary">Salvar Alterações</button>
+                            </div>
+                            <input type="hidden" id="editSupporterId">
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Analytics Section -->
+            <section id="analytics-section" class="content-section">
+                <h2>Analytics</h2>
+                <div class="analytics-content">
+                    <p>Integração com Google Analytics será implementada aqui.</p>
+                </div>
+            </section>
+
+            <!-- Settings Section -->
+            <section id="settings-section" class="content-section">
+                <h2>Configurações</h2>
+                <div class="settings-content">
+                    <div class="settings-tabs">
+                        <div class="tab-buttons">
+                            <button class="tab-btn active" data-tab="general">Geral</button>
+                            <button class="tab-btn" data-tab="backup">Backup</button>
+                        </div>
+                        
+                        <div class="tab-content active" id="general-tab">
+                            <form class="settings-form">
+                                <h3 style="margin-bottom: 1.5rem; color: var(--text-dark);">Configurações Gerais</h3>
+                                <div class="form-group">
+                                    <label for="siteName">Nome do Site</label>
+                                    <input type="text" id="siteName" value="Carvalho Sports Photography">
+                                </div>
+                                <div class="form-group">
+                                    <label for="siteDescription">Descrição</label>
+                                    <textarea id="siteDescription" rows="3">Especialista em fotografia esportiva profissional.</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="contactEmail">Email de Contato</label>
+                                    <input type="email" id="contactEmail" value="contato@carvalhosports.com">
+                                </div>
+                                
+                                <h3 style="margin: 2rem 0 1.5rem 0; color: var(--text-dark);">Configurações da Galeria Principal</h3>
+                                <div class="form-group">
+                                    <label for="galleryTitle">Título da Galeria</label>
+                                    <input type="text" id="galleryTitle" value="GALERIA PRINCIPAL" placeholder="Ex: MINHA GALERIA ESPORTIVA">
+                                </div>
+                                <div class="form-group">
+                                    <label for="gallerySubtitle">Subtítulo da Galeria</label>
+                                    <input type="text" id="gallerySubtitle" value="Explore nossa coleção completa de momentos únicos capturados no esporte" placeholder="Ex: Momentos únicos capturados em alta resolução">
+                                </div>
+                                
+                                <button type="submit" class="btn-primary">Salvar Configurações</button>
+                            </form>
+                        </div>
+                        
+                        <div class="tab-content" id="backup-tab">
+                            <h3>Backup e Restauração</h3>
+                            <p>Faça backup dos seus dados ou restaure de um backup anterior.</p>
+                            
+                            <div class="backup-actions" style="display: flex; flex-wrap: wrap; gap: 1rem; margin: 2rem 0;">
+                                <button id="exportData" class="btn-primary">
+                                    <i class="fas fa-download"></i>
+                                    Exportar Dados
+                                </button>
+                                <input type="file" id="importFile" style="display: none;" accept=".json">
+                                <button id="importData" class="btn-secondary">
+                                    <i class="fas fa-upload"></i>
+                                    Importar Dados
+                                </button>
+                                <button id="resetGallery" class="btn-secondary" style="background-color: #f59e0b; border-color: #f59e0b;">
+                                    <i class="fas fa-sync-alt"></i>
+                                    Resetar Galeria
+                                </button>
+                                <button id="clearData" class="btn-danger">
+                                    <i class="fas fa-trash"></i>
+                                    Limpar Tudo
+                                </button>
+                            </div>
+                            
+                            <div class="backup-info" style="background: #f8f9fa; padding: 1rem; border-radius: 8px; margin-top: 1rem;">
+                                <h4>Informações:</h4>
+                                <ul style="margin: 0.5rem 0; padding-left: 1.5rem;">
+                                    <li><b>Exportar/Importar:</b> Salve ou carregue um backup completo (arquivo JSON).</li>
+                                    <li><b>Resetar Galeria:</b> Restaura a galeria para as 9 fotos padrão. As fotos atuais serão perdidas.</li>
+                                    <li><b>Limpar Tudo:</b> Apaga TODOS os dados do painel (fotos, mensagens, etc). Ação irreversível.</li>
+                                    <li>A importação substituirá todos os dados atuais.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="admin-script.js"></script>
+</body>
+</html>

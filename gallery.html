@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria - Carvalho Sports Photography</title>
+    <meta name="description" content="Galeria completa de fotografia esportiva profissional - Carvalho Sports Photography">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="keywords" content="galeria fotografia esportiva, portfolio fotos esporte, carvalho photographer">
+    <meta name="author" content="Carvalho Sports Photography">
+    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="gallery-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="logo">
+                    <a href="index.html" class="logo-link" style="display: flex; align-items: center; text-decoration: none; color: inherit;">
+                        <img src="images/logo-carvalho.png" alt="Carvalho's Pics Logo" class="logo-image" style="height: 50px; margin-right: 15px;">
+                        <div class="logo-text">
+                            <h1>CARVALHO'S <span class="accent">PICS</span></h1>
+                            <p class="logo-subtitle">PHOTOGRAPHY</p>
+                        </div>
+                    </a>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html#home">Início</a></li>
+                    <li><a href="index.html#portfolio">Portfolio</a></li>
+                    <li><a href="gallery.html" class="active">Galeria Completa</a></li>
+                    <li><a href="index.html#about">Sobre</a></li>
+                    <li><a href="index.html#contact">Contato</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Gallery Hero -->
+    <section class="gallery-hero">
+        <div class="hero-background" style="background-image: url('images/gallery-hero-background.jpg');">
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-content">
+            <h1 class="hero-title">GALERIA COMPLETA</h1>
+            <p class="hero-subtitle">Explore nossa coleção completa de momentos únicos capturados no esporte</p>
+            
+            <!-- Gallery Stats -->
+            <div class="gallery-stats">
+                <div class="stat-item">
+                    <span class="stat-number" id="totalPhotos">120+</span>
+                    <span class="stat-label">Fotos</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">6</span>
+                    <span class="stat-label">Modalidades</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">50+</span>
+                    <span class="stat-label">Eventos</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Filters -->
+    <section class="gallery-filters-section">
+        <div class="container">
+            <div class="filters-header">
+                <h2>Filtrar por Modalidade</h2>
+                <div class="view-toggle">
+                    <button class="view-btn active" data-view="grid" title="Visualização em Grade">
+                        <i class="fas fa-th"></i>
+                    </button>
+                    <button class="view-btn" data-view="masonry" title="Visualização Masonry">
+                        <i class="fas fa-th-large"></i>
+                    </button>
+                    <button class="view-btn" data-view="list" title="Visualização em Lista">
+                        <i class="fas fa-list"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="gallery-filters">
+                <button class="filter-btn active" data-filter="all">
+                    <span class="filter-icon">🏆</span>
+                    <span class="filter-name">Todos</span>
+                    <span class="filter-count" id="count-all">120</span>
+                </button>
+                <button class="filter-btn" data-filter="futebol">
+                    <span class="filter-icon">⚽</span>
+                    <span class="filter-name">Futebol</span>
+                    <span class="filter-count" id="count-futebol">45</span>
+                </button>
+                <button class="filter-btn" data-filter="basquete">
+                    <span class="filter-icon">🏀</span>
+                    <span class="filter-name">Basquete</span>
+                    <span class="filter-count" id="count-basquete">25</span>
+                </button>
+                <button class="filter-btn" data-filter="volei">
+                    <span class="filter-icon">🏐</span>
+                    <span class="filter-name">Vôlei</span>
+                    <span class="filter-count" id="count-volei">20</span>
+                </button>
+                <button class="filter-btn" data-filter="natacao">
+                    <span class="filter-icon">🏊‍♂️</span>
+                    <span class="filter-name">Natação</span>
+                    <span class="filter-count" id="count-natacao">15</span>
+                </button>
+                <button class="filter-btn" data-filter="tenis">
+                    <span class="filter-icon">🎾</span>
+                    <span class="filter-name">Tênis</span>
+                    <span class="filter-count" id="count-tenis">10</span>
+                </button>
+                <button class="filter-btn" data-filter="corrida">
+                    <span class="filter-icon">🏃‍♂️</span>
+                    <span class="filter-name">Corrida</span>
+                    <span class="filter-count" id="count-corrida">5</span>
+                </button>
+            </div>
+
+            <!-- Search and Sort -->
+            <div class="gallery-controls">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="Buscar fotos por título, evento ou local...">
+                    <button id="clearSearch" class="clear-search" style="display: none;">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="sort-controls">
+                    <label for="sortSelect">Ordenar por:</label>
+                    <select id="sortSelect">
+                        <option value="newest">Mais Recentes</option>
+                        <option value="oldest">Mais Antigas</option>
+                        <option value="title">Título A-Z</option>
+                        <option value="category">Categoria</option>
+                        <option value="featured">Em Destaque</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Grid -->
+    <section class="gallery-section">
+        <div class="container">
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Photos will be dynamically loaded here -->
+            </div>
+            
+            <!-- Load More Button -->
+            <div class="load-more-container">
+                <button id="loadMoreBtn" class="btn-load-more">
+                    <i class="fas fa-plus"></i>
+                    Carregar Mais Fotos
+                </button>
+                <p class="photos-counter">
+                    Mostrando <span id="showingCount">20</span> de <span id="totalCount">120</span> fotos
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advanced Lightbox -->
+    <div id="advancedLightbox" class="advanced-lightbox">
+        <div class="lightbox-container">
+            <!-- Lightbox Header -->
+            <div class="lightbox-header">
+                <div class="lightbox-counter">
+                    <span id="currentPhotoIndex">1</span> / <span id="totalPhotosCount">120</span>
+                </div>
+                <div class="lightbox-actions">
+                    <button id="shareBtn" class="lightbox-btn" title="Compartilhar">
+                        <i class="fas fa-share-alt"></i>
+                    </button>
+                    <button id="downloadBtn" class="lightbox-btn" title="Baixar">
+                        <i class="fas fa-download"></i>
+                    </button>
+                    <button id="favoriteBtn" class="lightbox-btn" title="Favoritar">
+                        <i class="far fa-heart"></i>
+                    </button>
+                    <button id="fullscreenBtn" class="lightbox-btn" title="Tela Cheia">
+                        <i class="fas fa-expand"></i>
+                    </button>
+                    <button id="closeLightbox" class="lightbox-btn lightbox-close" title="Fechar">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Lightbox Content -->
+            <div class="lightbox-content">
+                <button class="lightbox-nav lightbox-prev" id="prevPhoto">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                
+                <div class="lightbox-main">
+                    <img id="lightboxImage" src="" alt="" />
+                    <div class="lightbox-loading">
+                        <i class="fas fa-spinner fa-spin"></i>
+                    </div>
+                </div>
+                
+                <button class="lightbox-nav lightbox-next" id="nextPhoto">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+
+            <!-- Photo Info Panel -->
+            <div class="photo-info-panel" id="photoInfoPanel">
+                <div class="photo-details">
+                    <h3 id="photoTitle">Título da Foto</h3>
+                    <p id="photoDescription">Descrição da foto...</p>
+                    
+                    <div class="photo-metadata">
+                        <div class="metadata-row">
+                            <span class="metadata-label">
+                                <i class="fas fa-calendar"></i> Data:
+                            </span>
+                            <span id="photoDate">15/01/2024</span>
+                        </div>
+                        <div class="metadata-row">
+                            <span class="metadata-label">
+                                <i class="fas fa-map-marker-alt"></i> Local:
+                            </span>
+                            <span id="photoLocation">Estádio</span>
+                        </div>
+                        <div class="metadata-row">
+                            <span class="metadata-label">
+                                <i class="fas fa-camera"></i> Equipamento:
+                            </span>
+                            <span id="photoCamera">Canon R5</span>
+                        </div>
+                        <div class="metadata-row">
+                            <span class="metadata-label">
+                                <i class="fas fa-cog"></i> Configurações:
+                            </span>
+                            <span id="photoSettings">1/1000s, f/2.8, ISO 1600</span>
+                        </div>
+                    </div>
+
+                    <div class="photo-tags">
+                        <span class="tag-label">Tags:</span>
+                        <div id="photoTags" class="tags-container">
+                            <!-- Tags will be added dynamically -->
+                        </div>
+                    </div>
+
+                    <div class="photo-actions">
+                        <a href="https://banlek.com/rones.carvalho" target="_blank" class="btn-purchase">
+                            <i class="fas fa-shopping-cart"></i>
+                            Comprar Esta Foto
+                        </a>
+                        <button class="btn-contact">
+                            <i class="fas fa-envelope"></i>
+                            Solicitar Orçamento
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Thumbnails Strip -->
+            <div class="thumbnails-strip" id="thumbnailsStrip">
+                <!-- Thumbnails will be added dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Share Modal -->
+    <div id="shareModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Compartilhar Foto</h3>
+                <span class="modal-close">&times;</span>
+            </div>
+            <div class="share-options">
+                <button class="share-btn facebook" data-platform="facebook">
+                    <i class="fab fa-facebook-f"></i>
+                    Facebook
+                </button>
+                <button class="share-btn twitter" data-platform="twitter">
+                    <i class="fab fa-twitter"></i>
+                    Twitter
+                </button>
+                <button class="share-btn instagram" data-platform="instagram">
+                    <i class="fab fa-instagram"></i>
+                    Instagram
+                </button>
+                <button class="share-btn whatsapp" data-platform="whatsapp">
+                    <i class="fab fa-whatsapp"></i>
+                    WhatsApp
+                </button>
+                <button class="share-btn copy-link" data-platform="copy">
+                    <i class="fas fa-link"></i>
+                    Copiar Link
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>CARVALHO SPORTS</h3>
+                    <p>Capturando a essência do esporte</p>
+                </div>
+                <div class="footer-links">
+                    <a href="index.html#home">Início</a>
+                    <a href="index.html#portfolio">Portfolio</a>
+                    <a href="gallery.html">Galeria</a>
+                    <a href="index.html#about">Sobre</a>
+                    <a href="index.html#contact">Contato</a>
+                </div>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Carvalho Sports Photography. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="config.js"></script>
+    <script src="gallery-data.js"></script>
+    <script src="gallery.js"></script>
+</body>
+</html>

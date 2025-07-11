@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carvalho Sports Photography - GALERIA ATUALIZADA</title>
+    
+    <!-- Forçar cache refresh -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    
+    <link rel="stylesheet" href="styles.css?v=<?php echo time(); ?>">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* CSS inline para garantir que carregue */
+        .main-gallery {
+            padding: 6rem 0;
+            background: var(--background-section, #1a1a1a);
+        }
+        
+        .gallery-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin: 3rem 0;
+        }
+        
+        .filter-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1rem 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            color: #ccc;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-width: 100px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background: #e63946;
+            border-color: #e63946;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(230, 57, 70, 0.3);
+        }
+        
+        .main-gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .main-gallery-item {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: #2a2a2a;
+            aspect-ratio: 4/3;
+        }
+        
+        .main-gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .main-gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .debug-info {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: #e63946;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            z-index: 9999;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <!-- Debug Info -->
+    <div class="debug-info">
+        ✅ GALERIA ATUALIZADA<br>
+        Timestamp: <span id="timestamp"></span>
+    </div>
+
+    <!-- Header/Navigation -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="logo">
+                    <h1>CARVALHO <span class="accent">SPORTS</span></h1>
+                    <p class="logo-subtitle">PHOTOGRAPHY</p>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#home">Início</a></li>
+                    <li><a href="#portfolio">Galeria</a></li>
+                    <li><a href="#about">Sobre</a></li>
+                    <li><a href="#contact">Contato</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-background">
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    CAPTURANDO
+                    <span class="hero-highlight">MOMENTOS ÉPICOS</span>
+                    NO ESPORTE
+                </h1>
+                <p class="hero-subtitle">
+                    Fotógrafo especializado em esportes profissionais. 
+                    Transformo ação em arte, emoção em eternidade.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#portfolio" class="btn btn-primary">
+                        <i class="fas fa-camera"></i>
+                        Ver Galeria
+                    </a>
+                    <a href="https://banlek.com/rones.carvalho" class="btn btn-secondary" target="_blank">
+                        <i class="fas fa-shopping-cart"></i>
+                        Compre sua foto
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NOVA GALERIA PRINCIPAL -->
+    <section id="portfolio" class="main-gallery">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">🎯 GALERIA PRINCIPAL ATUALIZADA</h2>
+                <p class="section-subtitle">Momentos únicos capturados em alta resolução</p>
+            </div>
+            
+            <!-- Gallery Filters -->
+            <div class="gallery-filters">
+                <button class="filter-btn active" data-filter="all">
+                    <span class="filter-icon">🏆</span>
+                    <span class="filter-name">Todos</span>
+                    <span class="filter-count" id="count-all">9</span>
+                </button>
+                <button class="filter-btn" data-filter="futebol">
+                    <span class="filter-icon">⚽</span>
+                    <span class="filter-name">Futebol</span>
+                    <span class="filter-count">2</span>
+                </button>
+                <button class="filter-btn" data-filter="basquete">
+                    <span class="filter-icon">🏀</span>
+                    <span class="filter-name">Basquete</span>
+                    <span class="filter-count">2</span>
+                </button>
+                <button class="filter-btn" data-filter="volei">
+                    <span class="filter-icon">🏐</span>
+                    <span class="filter-name">Vôlei</span>
+                    <span class="filter-count">2</span>
+                </button>
+                <button class="filter-btn" data-filter="natacao">
+                    <span class="filter-icon">🏊‍♂️</span>
+                    <span class="filter-name">Natação</span>
+                    <span class="filter-count">2</span>
+                </button>
+                <button class="filter-btn" data-filter="tenis">
+                    <span class="filter-icon">🎾</span>
+                    <span class="filter-name">Tênis</span>
+                    <span class="filter-count">1</span>
+                </button>
+            </div>
+
+            <!-- Main Gallery Grid -->
+            <div class="main-gallery-grid" id="mainGalleryGrid">
+                <!-- Fotos serão carregadas aqui -->
+            </div>
+            
+            <div style="text-align: center; margin: 2rem 0;">
+                <a href="https://banlek.com/rones.carvalho" target="_blank" class="btn btn-primary">
+                    <i class="fas fa-shopping-cart"></i>
+                    Comprar Fotos
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section Simples -->
+    <section id="about" style="padding: 4rem 0; background: #000; color: white; text-align: center;">
+        <div class="container">
+            <h2>SOBRE CARVALHO</h2>
+            <p>Especialista em fotografia esportiva profissional</p>
+        </div>
+    </section>
+
+    <!-- Contact Section Simples -->
+    <section id="contact" style="padding: 4rem 0; background: #1a1a1a; color: white; text-align: center;">
+        <div class="container">
+            <h2>CONTATO</h2>
+            <p>Email: contato@carvalhosports.com</p>
+            <p>Telefone: (11) 99999-9999</p>
+        </div>
+    </section>
+
+    <script>
+        // Timestamp para debug
+        document.getElementById('timestamp').textContent = new Date().toLocaleTimeString();
+        
+        // Dados de teste diretos
+        const testPhotos = [
+            {
+                id: 1,
+                title: "Final do Campeonato",
+                category: "futebol",
+                description: "Momento decisivo da final",
+                image: "https://picsum.photos/400/300?random=1"
+            },
+            {
+                id: 2,
+                title: "Enterrada Espetacular",
+                category: "basquete", 
+                description: "Lance épico no NBB",
+                image: "https://picsum.photos/400/300?random=2"
+            },
+            {
+                id: 3,
+                title: "Ataque Potente",
+                category: "volei",
+                description: "Cortada devastadora",
+                image: "https://picsum.photos/400/300?random=3"
+            },
+            {
+                id: 4,
+                title: "Gol Decisivo",
+                category: "futebol",
+                description: "Gol que definiu o jogo",
+                image: "https://picsum.photos/400/300?random=4"
+            },
+            {
+                id: 5,
+                title: "Lance Livre Perfeito",
+                category: "basquete",
+                description: "Arremesso certeiro",
+                image: "https://picsum.photos/400/300?random=5"
+            },
+            {
+                id: 6,
+                title: "Defesa Impossível",
+                category: "volei",
+                description: "Salvamento incrível",
+                image: "https://picsum.photos/400/300?random=6"
+            },
+            {
+                id: 7,
+                title: "Chegada Épica",
+                category: "natacao",
+                description: "Disputa nos 100m livre",
+                image: "https://picsum.photos/400/300?random=7"
+            },
+            {
+                id: 8,
+                title: "Saque Perfeito",
+                category: "tenis",
+                description: "Ace definitivo",
+                image: "https://picsum.photos/400/300?random=8"
+            },
+            {
+                id: 9,
+                title: "Borboleta Técnica",
+                category: "natacao",
+                description: "Nado borboleta impecável",
+                image: "https://picsum.photos/400/300?random=9"
+            }
+        ];
+        
+        // Renderizar galeria
+        document.addEventListener('DOMContentLoaded', function() {
+            const galleryGrid = document.getElementById('mainGalleryGrid');
+            
+            if (galleryGrid) {
+                testPhotos.forEach(photo => {
+                    const photoElement = document.createElement('div');
+                    photoElement.className = 'main-gallery-item';
+                    photoElement.innerHTML = `
+                        <img src="${photo.image}" alt="${photo.title}" loading="lazy">
+                        <div style="
+                            position: absolute; 
+                            bottom: 0; 
+                            left: 0; 
+                            right: 0; 
+                            background: linear-gradient(transparent, rgba(0,0,0,0.8)); 
+                            color: white; 
+                            padding: 1rem;
+                            opacity: 0;
+                            transition: opacity 0.3s ease;
+                        " class="overlay">
+                            <h3 style="margin: 0 0 0.5rem 0; font-size: 1rem;">${photo.title}</h3>
+                            <p style="margin: 0; font-size: 0.9rem; opacity: 0.9;">${photo.description}</p>
+                        </div>
+                    `;
+                    
+                    // Hover effect
+                    photoElement.addEventListener('mouseenter', function() {
+                        this.querySelector('.overlay').style.opacity = '1';
+                    });
+                    
+                    photoElement.addEventListener('mouseleave', function() {
+                        this.querySelector('.overlay').style.opacity = '0';
+                    });
+                    
+                    galleryGrid.appendChild(photoElement);
+                });
+                
+                console.log('✅ Galeria carregada:', testPhotos.length, 'fotos');
+            } else {
+                console.error('❌ Element mainGalleryGrid não encontrado!');
+            }
+        });
+        
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
